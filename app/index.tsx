@@ -1,64 +1,85 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-//
-{
-  /* <div class="framer-1205fn6" data-framer-name="Mask Pattern" style="background-color: transparent; background-image: radial-gradient(transparent 1px, var(--token-f32baa44-90b8-42a5-8bca-ffba9d95b23a, #ffffff) 1px); background-size: 4px 4px; backdrop-filter: blur(3px); mask: linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%); opacity: 1;"></div> */
-}
+import * as AC from "@bacons/apple-colors";
+
+import Header from "@/components/header";
+
+const bg = AC.secondarySystemBackground;
 
 export default function Page() {
   return (
-    <div>
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <Text style={styles.title}>Hello World</Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
+    <View style={{ flex: 1 }}>
+      <ScrollView>
+        <View style={styles.container}>
+          <View style={styles.main}>
+            <Text style={styles.title}>Hello World</Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+            <Text style={styles.subtitle}>
+              This is the first page of your app.
+            </Text>
+          </View>
         </View>
-      </View>
-      <View
-        style={{ position: "fixed", top: 0, left: 0, right: 0, height: 64 }}
-      >
-        <div
-          style={{
-            flex: 1,
-            backgroundColor: "transparent",
-            backgroundImage:
-              "radial-gradient(transparent 1px, rgb(255, 255, 255) 1px)",
-            backgroundSize: "4px 4px",
-            backdropFilter: "blur(3px)",
-            mask: "linear-gradient(rgb(0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%)",
-            opacity: 1,
-          }}
-        ></div>
-      </View>
-    </div>
+      </ScrollView>
+      <Header
+        dom={{
+          containerStyle: {
+            position: "absolute",
+            display: "flex",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 72,
+          },
+        }}
+      />
+
+      {/* <div
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          pointerEvents: "none",
+          opacity: 0.06,
+          backgroundSize: 128,
+          backgroundRepeat: "repeat",
+          backgroundImage: `url(${
+            require("@/assets/images/motion-drop.png").uri
+          })`,
+          zIndex: 999,
+        }}
+      /> */}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 120,
+    backgroundColor: bg,
     flex: 1,
     alignItems: "center",
     padding: 24,
@@ -71,10 +92,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 64,
+    color: AC.label,
     fontWeight: "bold",
   },
   subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+    fontSize: 56,
+    color: AC.secondaryLabel,
   },
 });

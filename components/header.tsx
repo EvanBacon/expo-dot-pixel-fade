@@ -13,27 +13,17 @@ export default function DotHeader({
   return (
     <div
       style={{
-        position: "fixed",
-        display: "flex",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        flex: 1,
+        backgroundColor: "transparent",
+        backgroundImage: `radial-gradient(transparent 1.5px, ${bg} 1.5px)`,
+        backgroundSize: "5px 5px",
+
+        backdropFilter: "blur(100px)",
+        mask: flip
+          ? `linear-gradient(rgba(255, 255, 255, 0) 0%, ${bg} 100%)`
+          : `linear-gradient(${bg} 60%, rgba(255, 255, 255, 0) 100%)`,
+        opacity: 1,
       }}
-    >
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "transparent",
-          backgroundImage: `radial-gradient(transparent 1px, ${bg} 1px)`,
-          backgroundSize: "3px 3px",
-          backdropFilter: "blur(3px)",
-          mask: flip
-            ? `linear-gradient(rgba(255, 255, 255, 0) 0%, ${bg} 100%)`
-            : `linear-gradient(${bg} 60%, rgba(255, 255, 255, 0) 100%)`,
-          opacity: 1,
-        }}
-      />
-    </div>
+    />
   );
 }

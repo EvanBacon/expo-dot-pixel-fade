@@ -24,7 +24,7 @@ export default function Root({ children }: PropsWithChildren) {
           Disable body scrolling on web. This makes ScrollView components work closer to how they do on native.
           However, body scrolling is often nice to have for mobile web. If you want to enable it, remove this line.
         */}
-        {/* <ScrollViewStyleReset /> */}
+        <ScrollViewStyleReset />
 
         {/* Add any additional <head> elements that you want globally available on web... */}
       </head>

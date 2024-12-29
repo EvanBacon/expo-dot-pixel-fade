@@ -1,15 +1,16 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, Image, StyleSheet, Text, View } from "react-native";
 
 import * as AC from "@bacons/apple-colors";
-
+// import { Image } from "expo-image";
 import Header from "@/components/header";
+import { BodyScrollView } from "@/components/ui/BodyScrollView";
 
-const bg = AC.secondarySystemBackground;
+const bg = AC.systemBackground;
 
 export default function Page() {
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView>
+      <BodyScrollView contentContainerStyle={{ paddingBottom: 128 }}>
         <View style={styles.container}>
           <View style={styles.main}>
             <Text style={styles.title}>Hello World</Text>
@@ -39,16 +40,18 @@ export default function Page() {
             </Text>
           </View>
         </View>
-      </ScrollView>
+      </BodyScrollView>
       <Header
+        flip
         dom={{
+          contentInsetAdjustmentBehavior: "never",
           containerStyle: {
             position: "absolute",
             display: "flex",
-            top: 0,
+            bottom: 0,
             left: 0,
             right: 0,
-            height: 72,
+            height: 128,
           },
         }}
       />
@@ -72,13 +75,30 @@ export default function Page() {
           zIndex: 999,
         }}
       /> */}
+
+      <Image
+        pointerEvents="none"
+        resizeMode="repeat"
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          opacity: 0.06,
+          zIndex: 999,
+        }}
+        source={require("@/assets/images/motion-drop.png")}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 120,
     backgroundColor: bg,
     flex: 1,
     alignItems: "center",
